@@ -7,7 +7,7 @@
       "lora_r": 16,
       "lora_alpha": 32,
       "epochs": 5,
-      "learning_rate": 3e-5,
+      "learning_rate": 3e-05,
       "training_data_size": 294
     },
     "results": {
@@ -18,5 +18,28 @@
       "trainable_pct": 0.81
     },
     "notes": "Demo版本。仅SFT训练，294条单轮数据。流水线验证通过但回答质量有提升空间。"
+  },
+  {
+    "version": "v1",
+    "method": "SFT",
+    "timestamp": "2026-07-07T23:25:31.274125",
+    "config": {
+      "lora_r": 32,
+      "lora_alpha": 64,
+      "epochs": 8,
+      "learning_rate": 3e-05,
+      "training_data_size": 512
+    },
+    "results": {
+      "final_loss": 0.306,
+      "eval_metrics": {
+        "total_cases": 55,
+        "avg_character_consistency": 0.716,
+        "ooc_pass_rate": 1.0,
+        "adversarial_pass_rate": 1.0,
+        "avg_rag_fact_recall": 0.177
+      }
+    },
+    "notes": "v1: Expanded data (512 train + 62 val). LoRA r=32 alpha=64. 8 epochs. eval_loss=0.306 on val set — significantly better than v0 (train_loss=0.35). 90.5% loss reduction. 53 min on RTX 4060 Ti."
   }
 ]

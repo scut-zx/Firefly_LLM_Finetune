@@ -284,6 +284,7 @@ def main():
         bf16=use_bf16,
         logging_steps=LOGGING_STEPS,
         save_steps=SAVE_STEPS,
+        save_strategy="epoch" if eval_dataset else "steps",
         save_total_limit=3,
         gradient_checkpointing=True,
         gradient_checkpointing_kwargs={"use_reentrant": False},

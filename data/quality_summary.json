@@ -1,0 +1,11 @@
+{
+  "total": 643,
+  "average_score": 0.793,
+  "tier_distribution": {
+    "A (优秀)": 312,
+    "B (良好)": 249,
+    "C (一般)": 82,
+    "D (需改进)": 0
+  },
+  "input_file": "data/firefly_training_v2.json"
+}
