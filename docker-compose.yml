@@ -1,0 +1,98 @@
+# ============================================================
+# Firefly Character AI Assistant - Docker Compose
+# ============================================================
+# 一键启动完整服务栈
+#
+# 前置条件:
+#   1. model/ 目录下有 Qwen3-4B-Instruct-2507 模型
+#   2. output/ 目录下有训练好的 LoRA 权重
+#   3. chroma_db/ 目录下有构建好的 RAG 向量数据库
+#
+# 启动:
+#   docker-compose up -d
+#
+# 查看日志:
+#   docker-compose logs -f
+#
+# 停止:
+#   docker-compose down
+# ============================================================
+
+version: "3.8"
+
+services:
+  firefly-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: firefly-assistant:latest
+    container_name: firefly-backend
+    restart: unless-stopped
+
+    # GPU 访问
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    # 端口映射
+    ports:
+      - "7860:7860"
+
+    # 卷挂载 (模型、LoRA 权重、向量数据库、日志)
+    volumes:
+      - ./model:/app/model:ro
+      - ./output:/app/output:ro
+      - ./chroma_db:/app/chroma_db
+      - ./logs:/app/logs
+      - ./data:/app/data:ro
+
+    # 环境变量
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FIREFLY_MODEL_PATH=/app/model
+      - FIREFLY_LORA_PATH=/app/output/Firefly_DPO_Merged
+      - FIREFLY_RAG_DB_PATH=/app/chroma_db
+      - FIREFLY_LOG_DIR=/app/logs
+      - FIREFLY_MAX_TOKENS=512
+      - FIREFLY_TEMPERATURE=0.7
+
+    # 启动命令
+    command: >
+      python -m backend.app
+      --direct
+      --host 0.0.0.0
+      --port 7860
+
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # 可选: vLLM 推理服务 (性能更高，但需要额外配置)
+  # firefly-vllm:
+  #   image: vllm/vllm-openai:latest
+  #   container_name: firefly-vllm
+  #   restart: unless-stopped
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./model:/app/model:ro
+  #     - ./output:/app/output:ro
+  #   command: >
+  #     --model /app/model
+  #     --lora-modules firefly=/app/output/Firefly_DPO_Merged
+  #     --port 8000

@@ -1,0 +1,76 @@
+# ============================================================
+# Firefly LLM Finetune - .gitignore
+# ============================================================
+
+# Model weights (too large for git)
+model/
+output/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Vector database (large binary files)
+chroma_db/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+
+# Conda environment
+*.conda/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Claude
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Reference code (cloned repos, not project code)
+reference_code/
+LlamaFactory/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Training cache
+.cache/
+huggingface/
+datasets/
+
+# OS files
+Desktop.ini
+$RECYCLE.BIN/

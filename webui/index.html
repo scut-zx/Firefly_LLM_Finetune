@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>流萤 · 星核猎手</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 萤火虫粒子背景 -->
+    <canvas id="fireflyCanvas" class="firefly-canvas"></canvas>
+
+    <!-- 背景层 -->
+    <div class="bg-layer"></div>
+
+    <!-- 手机端抽屉遮罩 -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- 手机端抽屉 - 角色档案 -->
+    <aside class="drawer drawer-left" id="drawerLeft">
+        <div class="drawer-header">
+            <h3>✦ 角色档案</h3>
+            <button class="drawer-close" onclick="closeDrawer('left')">✕</button>
+        </div>
+        <div class="drawer-content">
+            <div class="char-portrait-mini">
+                <div class="char-portrait-placeholder">
+                    <div class="placeholder-icon">🔥</div>
+                    <div class="placeholder-text">流萤 · Firefly</div>
+                </div>
+            </div>
+            <div class="char-stats">
+                <div class="stat-item"><div class="stat-label">阵营</div><div class="stat-value">星核猎手</div></div>
+                <div class="stat-item"><div class="stat-label">属性</div><div class="stat-value">火</div></div>
+                <div class="stat-item"><div class="stat-label">命途</div><div class="stat-value">毁灭</div></div>
+                <div class="stat-item"><div class="stat-label">稀有度</div><div class="stat-value">★★★★★</div></div>
+                <div class="stat-item"><div class="stat-label">出身</div><div class="stat-value">格拉默</div></div>
+                <div class="stat-item"><div class="stat-label">编号</div><div class="stat-value">AR-26710</div></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 手机端抽屉 - 设置&提问 -->
+    <aside class="drawer drawer-right" id="drawerRight">
+        <div class="drawer-header">
+            <h3>✦ 功能面板</h3>
+            <button class="drawer-close" onclick="closeDrawer('right')">✕</button>
+        </div>
+        <div class="drawer-content">
+            <div class="setting-section">
+                <h4>功能设置</h4>
+                <div class="setting-item">
+                    <span class="setting-label">🔍 RAG 检索</span>
+                    <div class="toggle active" id="ragToggleMobile"></div>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label">🛡️ 回答校验</span>
+                    <div class="toggle active" id="validationToggleMobile"></div>
+                </div>
+            </div>
+            <div class="setting-section">
+                <h4>快捷提问</h4>
+                <div class="quick-questions">
+                    <button class="quick-question">你是谁？</button>
+                    <button class="quick-question">开拓者最近还好吗？</button>
+                    <button class="quick-question">匹诺康尼的梦…</button>
+                    <button class="quick-question">说说萨姆的事</button>
+                    <button class="quick-question">你的心愿是什么？</button>
+                    <button class="quick-question">飞萤扑火是什么意思？</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="container">
+        <!-- Logo -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">✦</div>
+                <div>
+                    <div class="logo-text">FIREFLY</div>
+                    <div class="logo-subtitle">流萤 · 星核猎手</div>
+                </div>
+            </div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                <span>系统在线</span>
+            </div>
+        </header>
+
+        <!-- 主内容 - 左中右三栏 -->
+        <main class="main-content">
+            <!-- 左侧 - 角色立绘 -->
+            <aside class="sidebar-left">
+                <div class="char-portrait">
+                    <div class="char-portrait-placeholder main-portrait">
+                        <div class="placeholder-icon">🔥</div>
+                        <div class="placeholder-text">流萤<br><small>Firefly · SAM</small></div>
+                    </div>
+                    <div class="char-name">
+                        <h2>流萤</h2>
+                        <p>星核猎手 · 前格拉默铁骑</p>
+                        <p class="char-quote">「会找到的，属于我的梦…」</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 中间 - 聊天区 -->
+            <section class="chat-section">
+                <div class="chat-header">
+                    <h3>✦ 对话 · DIALOGUE</h3>
+                </div>
+                <div class="chat-messages" id="messages">
+                    <!-- 消息动态添加 -->
+                </div>
+                <div class="chat-input-area">
+                    <div class="chat-input-wrapper">
+                        <textarea id="chatInput" class="chat-input" placeholder="和流萤说点什么吧…" rows="1"></textarea>
+                        <button id="sendBtn" class="send-btn">
+                            <span class="send-icon">↑</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 右侧 - 功能面板 -->
+            <aside class="sidebar-right">
+                <div class="sidebar-card">
+                    <h3>✦ 角色档案</h3>
+                    <div class="char-stats">
+                        <div class="stat-item"><div class="stat-label">阵营</div><div class="stat-value">星核猎手</div></div>
+                        <div class="stat-item"><div class="stat-label">属性</div><div class="stat-value">火</div></div>
+                        <div class="stat-item"><div class="stat-label">命途</div><div class="stat-value">毁灭</div></div>
+                        <div class="stat-item"><div class="stat-label">稀有度</div><div class="stat-value">★★★★★</div></div>
+                        <div class="stat-item"><div class="stat-label">出身</div><div class="stat-value">格拉默</div></div>
+                        <div class="stat-item"><div class="stat-label">编号</div><div class="stat-value">AR-26710</div></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>✦ 功能设置</h3>
+                    <div class="setting-item">
+                        <span class="setting-label">🔍 RAG 检索</span>
+                        <div class="toggle active" id="ragToggle"></div>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-label">🛡️ 回答校验</span>
+                        <div class="toggle active" id="validationToggle"></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>✦ 快捷提问</h3>
+                    <div class="quick-questions">
+                        <button class="quick-question">你是谁？</button>
+                        <button class="quick-question">开拓者最近还好吗？</button>
+                        <button class="quick-question">匹诺康尼的梦…</button>
+                        <button class="quick-question">说说萨姆的事</button>
+                        <button class="quick-question">你的心愿是什么？</button>
+                        <button class="quick-question">飞萤扑火是什么意思？</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- 手机端底部导航 -->
+        <nav class="mobile-nav">
+            <button class="nav-btn" onclick="openDrawer('left')">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label">档案</span>
+            </button>
+            <button class="nav-btn nav-btn-center" onclick="scrollToBottom()">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">对话</span>
+            </button>
+            <button class="nav-btn" onclick="openDrawer('right')">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">功能</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/feedback.js"></script>
+</body>
+</html>

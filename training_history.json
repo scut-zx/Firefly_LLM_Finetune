@@ -1,0 +1,22 @@
+[
+  {
+    "version": "v0",
+    "method": "SFT",
+    "timestamp": "2026-07-07T00:00:00",
+    "config": {
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "epochs": 5,
+      "learning_rate": 3e-5,
+      "training_data_size": 294
+    },
+    "results": {
+      "final_loss": 0.35,
+      "initial_loss": 3.68,
+      "training_time_minutes": 12,
+      "trainable_params": 33030144,
+      "trainable_pct": 0.81
+    },
+    "notes": "Demo版本。仅SFT训练，294条单轮数据。流水线验证通过但回答质量有提升空间。"
+  }
+]

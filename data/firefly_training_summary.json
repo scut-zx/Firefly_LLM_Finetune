@@ -1,0 +1,19 @@
+{
+  "total_pairs": 295,
+  "categories": {
+    "设定问答": 77,
+    "情境对话": 104,
+    "台词改写": 38,
+    "防OOC": 30,
+    "日常闲聊": 46
+  },
+  "quality_checks": {
+    "empty_outputs": 0,
+    "too_short": 0,
+    "too_long": 0,
+    "third_person_self_ref": 0
+  },
+  "system_prompt_included": true,
+  "format": "alpaca (instruction/input/output/system/category)",
+  "source": "firefly-skill markdown files"
+}

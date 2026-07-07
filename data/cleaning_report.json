@@ -1,0 +1,23 @@
+{
+  "original_count": 295,
+  "removed": {
+    "by_category": {},
+    "by_issue": {
+      "jaccard_duplicate": 1
+    }
+  },
+  "issues_found": {
+    "no_firefly_marker": 59
+  },
+  "after_validation": 295,
+  "after_exact_dedup": 295,
+  "final_count": 294,
+  "category_distribution": {
+    "设定问答": 77,
+    "情境对话": 104,
+    "台词改写": 37,
+    "防OOC": 30,
+    "日常闲聊": 46
+  },
+  "avg_output_length": 61.3
+}
