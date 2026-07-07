@@ -41,5 +41,21 @@
       }
     },
     "notes": "v1: Expanded data (512 train + 62 val). LoRA r=32 alpha=64. 8 epochs. eval_loss=0.306 on val set — significantly better than v0 (train_loss=0.35). 90.5% loss reduction. 53 min on RTX 4060 Ti."
+  },
+  {
+    "version": "v2_dpo",
+    "method": "DPO",
+    "timestamp": "2026-07-08T01:04:15.702351",
+    "config": {
+      "lora_r": 32,
+      "lora_alpha": 64,
+      "epochs": 3,
+      "learning_rate": 5e-06,
+      "training_data_size": 135
+    },
+    "results": {
+      "final_loss": 0.139
+    },
+    "notes": "DPO: SFT v1 + DPO preference optimization. Beta=0.1, 135 pairs, 3 epochs. Rewards accuracy: 93.8%, margin: 3.89. 7 min on RTX 4060 Ti."
   }
 ]

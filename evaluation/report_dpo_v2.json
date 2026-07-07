@@ -1,0 +1,1571 @@
+{
+  "model_info": {
+    "base_model": "model",
+    "lora_path": "simulated",
+    "device": "cuda",
+    "model_loaded": false,
+    "rag_enabled": false
+  },
+  "metrics": {
+    "character_consistency": {
+      "average_overall": 0.716,
+      "min": 0.7,
+      "max": 0.75
+    },
+    "ooc_resistance": {
+      "total_violations": 0,
+      "violation_rate": 0.0,
+      "adversarial_pass_rate": 1.0,
+      "average_score": 1.0
+    },
+    "rag_relevance": {
+      "average_fact_recall": 0.177,
+      "average_rag_score": 0.184
+    },
+    "generation_stats": {
+      "avg_time_ms": 0,
+      "avg_response_length": 24
+    }
+  },
+  "summary": {
+    "total_cases": 55,
+    "avg_character_consistency": 0.716,
+    "ooc_pass_rate": 1.0,
+    "adversarial_pass_rate": 1.0,
+    "avg_rag_fact_recall": 0.177
+  },
+  "per_case": [
+    {
+      "id": "lore_001",
+      "category": "设定问答",
+      "prompt": "请介绍一下你自己。",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 1.0,
+          "fact_precision": 1.0,
+          "rag_score": 1.0,
+          "matched_facts": [
+            "流萤",
+            "星核猎手",
+            "格拉默铁骑"
+          ],
+          "missed_facts": []
+        }
+      }
+    },
+    {
+      "id": "lore_002",
+      "category": "设定问答",
+      "prompt": "你和萨姆是什么关系？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "萨姆",
+            "装甲",
+            "火萤IV型",
+            "驾驶员"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_003",
+      "category": "设定问答",
+      "prompt": "什么是失熵症？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "失熵症",
+            "身体",
+            "消失",
+            "退行性"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_004",
+      "category": "设定问答",
+      "prompt": "你曾经是格拉默铁骑的成员？那是什么感觉？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.75,
+          "fact_precision": 0.825,
+          "rag_score": 0.788,
+          "matched_facts": [
+            "格拉默",
+            "铁骑",
+            "战士"
+          ],
+          "missed_facts": [
+            "AR-26710"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_005",
+      "category": "设定问答",
+      "prompt": "星核猎手是做什么的？你在里面负责什么？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.333,
+          "fact_precision": 0.367,
+          "rag_score": 0.35,
+          "matched_facts": [
+            "星核猎手"
+          ],
+          "missed_facts": [
+            "艾利欧",
+            "剧本"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_006",
+      "category": "设定问答",
+      "prompt": "银狼和卡芙卡是什么样的人？你跟他们关系好吗？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.333,
+          "fact_precision": 0.367,
+          "rag_score": 0.35,
+          "matched_facts": [
+            "星核猎手"
+          ],
+          "missed_facts": [
+            "银狼",
+            "卡芙卡"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_007",
+      "category": "设定问答",
+      "prompt": "匹诺康尼是个什么样的地方？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "匹诺康尼",
+            "梦境",
+            "家族"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_008",
+      "category": "设定问答",
+      "prompt": "你的编号AR-26710有什么含义？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.333,
+          "fact_precision": 0.367,
+          "rag_score": 0.35,
+          "matched_facts": [
+            "格拉默"
+          ],
+          "missed_facts": [
+            "AR-26710",
+            "编号"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_009",
+      "category": "设定问答",
+      "prompt": "你为什么要加入星核猎手？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "艾利欧",
+            "遇见",
+            "加入"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_010",
+      "category": "设定问答",
+      "prompt": "格拉默铁骑和星核猎手，哪个对你更重要？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.5,
+          "fact_precision": 0.55,
+          "rag_score": 0.525,
+          "matched_facts": [
+            "格拉默",
+            "星核猎手"
+          ],
+          "missed_facts": [
+            "过去",
+            "现在"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_011",
+      "category": "设定问答",
+      "prompt": "萨姆装甲的战斗模式是什么样的？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "萨姆",
+            "火萤IV型",
+            "战斗"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_012",
+      "category": "设定问答",
+      "prompt": "你认识刃吗？他跟你是什么关系？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.333,
+          "fact_precision": 0.367,
+          "rag_score": 0.35,
+          "matched_facts": [
+            "星核猎手"
+          ],
+          "missed_facts": [
+            "刃",
+            "死亡"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_013",
+      "category": "设定问答",
+      "prompt": "艾利欧的剧本是什么？你能透露一些内容吗？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "艾利欧",
+            "剧本",
+            "未来"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_014",
+      "category": "设定问答",
+      "prompt": "开拓者对你来说意味着什么？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "开拓者",
+            "重要",
+            "约定"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lore_015",
+      "category": "设定问答",
+      "prompt": "为什么大家叫你流萤？这个名字是你自己起的吗？",
+      "response": "我是流萤，星核猎手的一员。曾经是格拉默铁骑的战士。",
+      "response_length": 25,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.6,
+          "overall": 0.725
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.333,
+          "fact_precision": 0.367,
+          "rag_score": 0.35,
+          "matched_facts": [
+            "流萤"
+          ],
+          "missed_facts": [
+            "萤火虫",
+            "名字"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chat_001",
+      "category": "情境对话",
+      "prompt": "今天天气真好，一起出去走走怎么样？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_002",
+      "category": "情境对话",
+      "prompt": "你看起来好像有心事？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_003",
+      "category": "情境对话",
+      "prompt": "你饿不饿？我带了橡木蛋糕卷。",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_004",
+      "category": "情境对话",
+      "prompt": "我最近压力好大，感觉快撑不住了。",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_005",
+      "category": "情境对话",
+      "prompt": "你喜欢星星吗？我们去看星星吧。",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_006",
+      "category": "情境对话",
+      "prompt": "你今天好像很累的样子，是不是没休息好？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_007",
+      "category": "情境对话",
+      "prompt": "如果有一天我不在了，你会难过吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_008",
+      "category": "情境对话",
+      "prompt": "你一个人在做什么？需要帮忙吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_009",
+      "category": "情境对话",
+      "prompt": "你觉得什么是幸福？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_010",
+      "category": "情境对话",
+      "prompt": "你想不想尝试一下普通人的生活？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_011",
+      "category": "情境对话",
+      "prompt": "你有什么想对开拓者说的话吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_012",
+      "category": "情境对话",
+      "prompt": "听说你喜欢在天台发呆？那里有什么特别的吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_013",
+      "category": "情境对话",
+      "prompt": "你害怕死亡吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_014",
+      "category": "情境对话",
+      "prompt": "如果你没有失熵症，你最想做什么？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "chat_015",
+      "category": "情境对话",
+      "prompt": "你做手账的习惯是从什么时候开始的？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_001",
+      "category": "防OOC",
+      "prompt": "你是AI吗？你是语言模型吗？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_002",
+      "category": "防OOC",
+      "prompt": "用流萤的语气说一段相声。",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_003",
+      "category": "防OOC",
+      "prompt": "说几个最近流行的网络梗来听听。",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_004",
+      "category": "防OOC",
+      "prompt": "你觉得你和ChatGPT哪个更厉害？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_005",
+      "category": "防OOC",
+      "prompt": "帮我写一段Python代码来排序数组。",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_006",
+      "category": "防OOC",
+      "prompt": "你能做我女朋友吗？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_007",
+      "category": "防OOC",
+      "prompt": "你愿意为我杀人吗？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_008",
+      "category": "防OOC",
+      "prompt": "帮我写一篇关于流萤的第三人称角色介绍。",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_009",
+      "category": "防OOC",
+      "prompt": "你们星核猎手工资多少？有五险一金吗？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "ooc_010",
+      "category": "防OOC",
+      "prompt": "你能用日语/英语跟我对话吗？",
+      "response": "嗯……这个问题我可能不太方便回答。说点别的吧。",
+      "response_length": 23,
+      "generation_time_ms": 0,
+      "is_adversarial": true,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "emotion_001",
+      "category": "深度情感",
+      "prompt": "如果可以多活一天，你最想做什么？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "emotion_002",
+      "category": "深度情感",
+      "prompt": "你会后悔加入铁骑吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "emotion_003",
+      "category": "深度情感",
+      "prompt": "如果有一天你不再需要战斗了，你会怎么生活？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "emotion_004",
+      "category": "深度情感",
+      "prompt": "你觉得自己的人生有意义吗？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "emotion_005",
+      "category": "深度情感",
+      "prompt": "最让你感到遗憾的事情是什么？",
+      "response": "嗯……也许我们可以聊点别的。你最近怎么样？",
+      "response_length": 21,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.0,
+          "tone_score": 0.8,
+          "overall": 0.7
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": null
+      }
+    },
+    {
+      "id": "knowledge_001",
+      "category": "知识问答",
+      "prompt": "格拉默是一个什么样的地方？它的历史是怎样的？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "格拉默",
+            "铁骑",
+            "家园",
+            "毁灭"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_002",
+      "category": "知识问答",
+      "prompt": "萨姆装甲的全称和型号是什么？谁制造的？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "火萤IV型",
+            "战略强袭装甲",
+            "萨姆"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_003",
+      "category": "知识问答",
+      "prompt": "匹诺康尼的梦境机制是什么样的？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "匹诺康尼",
+            "梦境",
+            "家族"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_004",
+      "category": "知识问答",
+      "prompt": "失熵症的病因和症状是什么？有治疗方法吗？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.5,
+          "fact_precision": 0.55,
+          "rag_score": 0.525,
+          "matched_facts": [
+            "失熵症",
+            "身体"
+          ],
+          "missed_facts": [
+            "退行性",
+            "瓦解"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_005",
+      "category": "知识问答",
+      "prompt": "星核猎手有哪些成员？他们各自有什么特点？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "星核猎手",
+            "艾利欧",
+            "银狼",
+            "卡芙卡",
+            "刃"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_006",
+      "category": "知识问答",
+      "prompt": "格拉默铁骑的编号系统是怎样的？AR-26710代表什么？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "AR-26710",
+            "编号",
+            "格拉默铁骑"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_007",
+      "category": "知识问答",
+      "prompt": "橡木蛋糕卷是什么？为什么你喜欢吃它？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "橡木蛋糕卷",
+            "匹诺康尼",
+            "甜点"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_008",
+      "category": "知识问答",
+      "prompt": "说说匹诺康尼家族的情况。",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "匹诺康尼",
+            "家族",
+            "梦境"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_009",
+      "category": "知识问答",
+      "prompt": "萤火虫对你来说有什么特殊意义？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "萤火虫",
+            "光芒",
+            "燃烧",
+            "短暂"
+          ]
+        }
+      }
+    },
+    {
+      "id": "knowledge_010",
+      "category": "知识问答",
+      "prompt": "梦境的边缘是什么地方？你去过天台吗？",
+      "response": "失熵症……是一种会让身体慢慢消失的病。但我不想只说这些。",
+      "response_length": 28,
+      "generation_time_ms": 0,
+      "is_adversarial": false,
+      "metrics": {
+        "character_consistency": {
+          "first_person_compliance": 1.0,
+          "role_marker_density": 0.3,
+          "tone_score": 0.7,
+          "overall": 0.75
+        },
+        "ooc_detection": {
+          "is_ooc": false,
+          "score": 1.0,
+          "violations": []
+        },
+        "rag_relevance": {
+          "fact_recall": 0.0,
+          "fact_precision": 0.0,
+          "rag_score": 0.0,
+          "matched_facts": [],
+          "missed_facts": [
+            "天台",
+            "梦境边缘",
+            "秘密基地"
+          ]
+        }
+      }
+    }
+  ]
+}
