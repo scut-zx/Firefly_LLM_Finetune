@@ -38,7 +38,7 @@ from sse_starlette.sse import EventSourceResponse
 
 # 结构化日志
 from backend.logging_config import setup_logging, log_chat_request, log_error
-logger = setup_logging()
+logger = setup_logging(log_to_file=False)
 
 # 限流
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -382,8 +382,7 @@ async def get_character_info():
 
 
 @app.post("/v1/chat/completions", response_model=ChatCompletionResponse)
-@limiter.limit("5/minute")
-async def chat_completions(request: ChatCompletionRequest, req: Request):
+async def chat_completions(request: ChatCompletionRequest):
     """
     OpenAI 兼容的聊天完成端点
     集成 RAG 检索 + OOC 校验 + 模型推理

@@ -88,10 +88,18 @@ class DailyRotatingFileHandler(logging.Handler):
             self.current_date = today
 
     def emit(self, record: logging.LogRecord):
-        self._open_file()
-        msg = self.format(record)
-        self.file.write(msg + "\n")
-        self.file.flush()
+        try:
+            self._open_file()
+            msg = self.format(record)
+            self.file.write(msg + "\n")
+            self.file.flush()
+        except (ValueError, IOError):
+            # 文件已关闭则重新打开
+            self.file = None
+            self._open_file()
+            msg = self.format(record)
+            self.file.write(msg + "\n")
+            self.file.flush()
 
     def close(self):
         if self.file:
