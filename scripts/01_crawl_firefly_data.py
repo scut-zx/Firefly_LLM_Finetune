@@ -325,23 +325,23 @@ def save_data(bwiki_data, moegirl_data):
         # 分类保存
         with open(OUTPUT_DIR / "bwiki_basic_info.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data["basic_info"], f, ensure_ascii=False, indent=2)
-        print(f"  ✅ bwiki_basic_info.json ({len(bwiki_data['basic_info'])} 项)")
+        print(f"  [OK] bwiki_basic_info.json ({len(bwiki_data['basic_info'])} 项)")
 
         with open(OUTPUT_DIR / "bwiki_stories.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data["stories"], f, ensure_ascii=False, indent=2)
-        print(f"  ✅ bwiki_stories.json ({len(bwiki_data['stories'])} 篇)")
+        print(f"  [OK] bwiki_stories.json ({len(bwiki_data['stories'])} 篇)")
 
         with open(OUTPUT_DIR / "bwiki_story_details.txt", 'w', encoding='utf-8') as f:
             f.write(bwiki_data.get("story_details", ""))
-        print(f"  ✅ bwiki_story_details.txt ({len(bwiki_data.get('story_details', ''))} 字)")
+        print(f"  [OK] bwiki_story_details.txt ({len(bwiki_data.get('story_details', ''))} 字)")
 
         with open(OUTPUT_DIR / "bwiki_skills.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data["skills"], f, ensure_ascii=False, indent=2)
-        print(f"  ✅ bwiki_skills.json ({len(bwiki_data['skills'])} 个)")
+        print(f"  [OK] bwiki_skills.json ({len(bwiki_data['skills'])} 个)")
 
         with open(OUTPUT_DIR / "bwiki_voices.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data["voices"], f, ensure_ascii=False, indent=2)
-        print(f"  ✅ bwiki_voices.json ({len(bwiki_data['voices'])} 条)")
+        print(f"  [OK] bwiki_voices.json ({len(bwiki_data['voices'])} 条)")
 
         with open(OUTPUT_DIR / "bwiki_extra.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data.get("extra_sections", {}), f, ensure_ascii=False, indent=2)
@@ -349,17 +349,17 @@ def save_data(bwiki_data, moegirl_data):
         # 完整数据
         with open(OUTPUT_DIR / "bwiki_full.json", 'w', encoding='utf-8') as f:
             json.dump(bwiki_data, f, ensure_ascii=False, indent=2)
-        print(f"  ✅ bwiki_full.json (完整数据)")
+        print(f"  [OK] bwiki_full.json (完整数据)")
 
     # Moegirl 数据
     if moegirl_data:
         with open(OUTPUT_DIR / "moegirl_full.json", 'w', encoding='utf-8') as f:
             json.dump(moegirl_data, f, ensure_ascii=False, indent=2)
-        print(f"  ✅ moegirl_full.json")
+        print(f"  [OK] moegirl_full.json")
 
         with open(OUTPUT_DIR / "moegirl_voices.json", 'w', encoding='utf-8') as f:
             json.dump(moegirl_data["voices"], f, ensure_ascii=False, indent=2)
-        print(f"  ✅ moegirl_voices.json ({len(moegirl_data['voices'])} 条)")
+        print(f"  [OK] moegirl_voices.json ({len(moegirl_data['voices'])} 条)")
 
     # 合并所有语音并去重
     all_voices = []
@@ -377,7 +377,7 @@ def save_data(bwiki_data, moegirl_data):
 
     with open(OUTPUT_DIR / "all_voices_merged.json", 'w', encoding='utf-8') as f:
         json.dump(all_voices, f, ensure_ascii=False, indent=2)
-    print(f"  ✅ all_voices_merged.json ({len(all_voices)} 条，已去重)")
+    print(f"  [OK] all_voices_merged.json ({len(all_voices)} 条，已去重)")
 
     # 生成文本格式摘要
     summary_lines = [
@@ -409,7 +409,7 @@ def save_data(bwiki_data, moegirl_data):
     summary = "\n".join(summary_lines)
     with open(OUTPUT_DIR / "crawl_summary.txt", 'w', encoding='utf-8') as f:
         f.write(summary)
-    print(f"  ✅ crawl_summary.txt")
+    print(f"  [OK] crawl_summary.txt")
 
 
 # ============================================================
@@ -434,9 +434,9 @@ def main():
     # 3. 保存
     if bwiki_data or moegirl_data:
         save_data(bwiki_data, moegirl_data)
-        print("\n✅ 爬取完成！")
+        print("\n[OK] 爬取完成！")
     else:
-        print("\n❌ 所有来源爬取失败！请检查网络连接。")
+        print("\n[FAIL] 所有来源爬取失败！请检查网络连接。")
         print("提示：如果 BWIKI 反爬，可以尝试：")
         print("  1. 在浏览器中打开页面，查看实际URL")
         print("  2. 检查是否需要添加 Cookie")
