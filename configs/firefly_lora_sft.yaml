@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: C:\Users\Admin\Desktop\Firefly_LLM_Finetune\model
+model_name_or_path: ./model
 trust_remote_code: true
 
 ### method
@@ -19,7 +19,7 @@ preprocessing_num_workers: 4
 dataloader_num_workers: 2
 
 ### output
-output_dir: C:\Users\Admin\Desktop\Firefly_LLM_Finetune\output\Firefly_LoRA
+output_dir: ./output\Firefly_LoRA
 logging_steps: 10
 save_steps: 200
 plot_loss: true

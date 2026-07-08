@@ -71,6 +71,17 @@ temp/
 huggingface/
 datasets/
 
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated reports
+evaluation/report_*.json
+
+# Generated plots
+*.png
+
 # OS files
 Desktop.ini
 $RECYCLE.BIN/

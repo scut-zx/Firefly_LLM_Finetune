@@ -9,7 +9,7 @@ echo 文档: http://localhost:7860/docs
 echo 前端: http://localhost:7860/
 echo.
 
-cd /d C:\Users\Admin\Desktop\Firefly_LLM_Finetune
+cd /d "%~dp0.."
 python -m backend.app --direct --port 7860
 
 pause

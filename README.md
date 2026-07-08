@@ -414,9 +414,23 @@ Firefly_LLM_Finetune/
 
 ---
 
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on reporting bugs, suggesting features, and submitting pull requests.
+
+If you want to adapt this pipeline for another character, check out the [Character Assistant Factory](.claude/skills/character-assistant-factory/SKILL.md) skill.
+
+## Acknowledgments
+
+- **[Yixuan (仪玄) Assistant](https://github.com/natsusasakiharuki/zzz-yixuan-assistant)** — Reference project that inspired the data pipeline and training approach
+- **[firefly-skill](https://github.com/natsusasakiharuki/firefly-skill)** — Structured Firefly character knowledge base used for training data generation
+- **[BWIKI](https://wiki.biligame.com/sr/)** and **[Moegirl Wiki](https://zh.moegirl.org.cn/)** — Character lore sources
+- **[Qwen3](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)** — Base model by Alibaba Cloud
+- **[trl](https://github.com/huggingface/trl)** and **[PEFT](https://github.com/huggingface/peft)** — Training frameworks by HuggingFace
+
 ## License
 
-MIT License
+[MIT License](LICENSE)
 
 ---
 

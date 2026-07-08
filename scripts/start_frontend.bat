@@ -3,7 +3,7 @@ echo ========================================
 echo 启动流萤前端界面
 echo ========================================
 
-cd /d C:\Users\Admin\Desktop\Firefly_LLM_Finetune\webui
+cd /d "%~dp0..\webui"
 
 echo 启动本地 HTTP 服务器...
 echo 地址: http://localhost:8080

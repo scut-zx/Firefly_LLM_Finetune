@@ -484,9 +484,23 @@ Firefly_LLM_Finetune/
 
 ---
 
+## 参与贡献
+
+欢迎贡献代码！请参阅 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何报告 Bug、建议功能、提交 PR。
+
+如果你想将此流水线适配到其他角色，请查看[角色助手工厂](.claude/skills/character-assistant-factory/SKILL.md)技能文档。
+
+## 致谢
+
+- **[仪玄助手](https://github.com/natsusasakiharuki/zzz-yixuan-assistant)** — 参考项目，启发了数据流水线和训练方案
+- **[firefly-skill](https://github.com/natsusasakiharuki/firefly-skill)** — 结构化的流萤角色知识库，用于生成训练数据
+- **[BWIKI](https://wiki.biligame.com/sr/)** 和 **[萌娘百科](https://zh.moegirl.org.cn/)** — 角色设定资料来源
+- **[Qwen3](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)** — 基础模型（阿里云）
+- **[trl](https://github.com/huggingface/trl)** 和 **[PEFT](https://github.com/huggingface/peft)** — 训练框架（HuggingFace）
+
 ## 许可证
 
-MIT License
+[MIT License](LICENSE)
 
 ---
 
