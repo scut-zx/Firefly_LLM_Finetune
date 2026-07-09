@@ -103,13 +103,17 @@ class FireflyEvaluator:
             return True
 
         except ImportError as e:
-            print(f"[Evaluator] 导入错误: {e}")
-            print("[Evaluator] 将使用模拟评估模式")
-            return False
+            raise RuntimeError(
+                f"[Evaluator] 导入错误: {e}\n"
+                f"请确保已安装所有依赖: pip install -r requirements.txt"
+            )
         except Exception as e:
-            print(f"[Evaluator] 模型加载失败: {e}")
-            print("[Evaluator] 将使用模拟评估模式")
-            return False
+            raise RuntimeError(
+                f"[Evaluator] 模型加载失败: {e}\n"
+                f"基础模型路径: {self.model_path}\n"
+                f"LoRA路径: {self.lora_path}\n"
+                f"请检查模型文件是否存在，或使用 --mock 参数进行模拟评估"
+            )
 
     def generate(self, messages: list, max_tokens: int = 256,
                  temperature: float = 0.7) -> str:

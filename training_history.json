@@ -58,4 +58,67 @@
     },
     "notes": "DPO: SFT v1 + DPO preference optimization. Beta=0.1, 135 pairs, 3 epochs. Rewards accuracy: 93.8%, margin: 3.89. 7 min on RTX 4060 Ti."
   }
+  {
+    "version": "v3_sft",
+    "method": "SFT",
+    "timestamp": "2026-07-09T01:00:00",
+    "config": {
+      "lora_r": 32,
+      "lora_alpha": 64,
+      "epochs": 5,
+      "learning_rate": 3e-05,
+      "training_data_size": 1371,
+      "train_split": 581,
+      "val_split": 60,
+      "test_split": 70,
+      "lora_plus": true,
+      "lora_plus_ratio": 4.0,
+      "neftune_noise_alpha": 5.0,
+      "data_sources": ["firefly_training_cleaned.json", "firefly.json", "firefly-plus.json"],
+      "augmentation_strategies": ["template", "back_translation", "difficulty_escalation", "adversarial_probe", "emotional_depth", "style_variants", "casual_chat"]
+    },
+    "results": {
+      "final_train_loss": 0.2206,
+      "eval_loss_epoch1": 0.4646,
+      "eval_loss_epoch4": 0.3944,
+      "eval_loss_epoch5": 0.3958,
+      "best_eval_loss": 0.3944,
+      "training_time_minutes": 43,
+      "trainable_params": 66060288,
+      "trainable_pct": 1.62,
+      "eval_metrics": {
+        "total_cases": 55,
+        "avg_character_consistency": 0.715,
+        "ooc_pass_rate": 1.0,
+        "adversarial_pass_rate": 1.0,
+        "avg_ai_speak": 0.992,
+        "avg_response_length": 88
+      }
+    },
+    "notes": "v3: Integrated ModelScope dataset (579 new records) + enhanced augmentation (7 strategies). 1371 total training pairs. LoRA+ (eta_B=4x) + NEFTune (alpha=5). First REAL evaluation (not mock). 0.992 AI-speak score = near-perfect naturalness."
+  },
+  {
+    "version": "v3_orpo",
+    "method": "ORPO",
+    "timestamp": "2026-07-09T01:30:00",
+    "config": {
+      "base_model": "SFT v3",
+      "preference_pairs": 21,
+      "epochs": 3,
+      "learning_rate": 5e-07,
+      "beta": 2.0
+    },
+    "results": {
+      "final_train_loss": 2.847,
+      "training_time_minutes": 1,
+      "eval_metrics": {
+        "total_cases": 30,
+        "avg_character_consistency": 0.692,
+        "ooc_pass_rate": 1.0,
+        "avg_ai_speak": 1.000,
+        "avg_response_length": 79
+      }
+    },
+    "notes": "ORPO preference alignment on SFT v3. 21 anti-OOC + anti-assistant pairs. Minor consistency decrease vs SFT v3 (0.692 vs 0.715) but perfect AI-speak. SFT v3 remains the recommended model."
+  }
 ]

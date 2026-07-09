@@ -32,8 +32,8 @@ from datasets import Dataset
 # 配置
 # ============================================================
 MODEL_PATH = str(PROJECT_ROOT / "model")
-DATA_PATH = str(PROJECT_ROOT / "data" / "firefly_training.json")
-OUTPUT_DIR = str(PROJECT_ROOT / "output" / "Firefly_LoRA")
+DATA_PATH = str(PROJECT_ROOT / "data" / "firefly_train_v3.json")
+OUTPUT_DIR = str(PROJECT_ROOT / "output" / "Firefly_LoRA_v3")
 
 # LoRA 配置 (与参考项目一致)
 LORA_R = 16
@@ -41,6 +41,12 @@ LORA_ALPHA = 32
 LORA_DROPOUT = 0.1
 LORA_TARGET_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj",
                        "gate_proj", "up_proj", "down_proj"]
+
+# LoRA+ 配置
+LORA_PLUS_RATIO = 4.0  # eta_B / eta_A (LoRA+ paper: 2-16x, recommended 4x)
+
+# NEFTune 配置
+NEFTUNE_NOISE_ALPHA = 5.0  # 嵌入层噪声强度 (NEFTune paper: 5-15)
 
 # 训练配置
 NUM_EPOCHS = 5
@@ -151,8 +157,16 @@ def main():
     parser.add_argument("--max_seq_len", type=int, default=MAX_SEQ_LENGTH, help="最大序列长度")
     parser.add_argument("--early_stopping_patience", type=int, default=0,
                        help="早停耐心值 (0=禁用, 建议3)")
+    parser.add_argument("--lora_plus", action="store_true",
+                       help="启用 LoRA+ (B矩阵使用更高学习率)")
+    parser.add_argument("--lora_plus_ratio", type=float, default=LORA_PLUS_RATIO,
+                       help=f"LoRA+ B/A 学习率比例 (默认: {LORA_PLUS_RATIO})")
+    parser.add_argument("--neftune_noise_alpha", type=float, default=0.0,
+                       help="NEFTune 嵌入噪声强度 (0=禁用, 建议5-15)")
     parser.add_argument("--no_bf16", action="store_true", help="禁用 bf16")
     parser.add_argument("--dry_run", action="store_true", help="仅验证配置，不训练")
+    parser.add_argument("--resume", action="store_true",
+                       help="从output目录中的最新checkpoint恢复训练")
     args = parser.parse_args()
 
     # 更新全局变量
@@ -180,6 +194,8 @@ def main():
     print(f"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
     print(f"LoRA: r={lora_r}, alpha={lora_alpha}")
     print(f"训练: {num_epochs} epochs, batch={batch_size}x{grad_accum}, lr={lr}")
+    print(f"LoRA+: {'启用 (ratio=' + str(args.lora_plus_ratio) + ')' if args.lora_plus else '禁用'}")
+    print(f"NEFTune: {'alpha=' + str(args.neftune_noise_alpha) if args.neftune_noise_alpha > 0 else '禁用'}")
     print()
 
     if args.dry_run:
@@ -299,6 +315,7 @@ def main():
         load_best_model_at_end=eval_dataset is not None,
         metric_for_best_model="eval_loss" if eval_dataset else None,
         greater_is_better=False,
+        neftune_noise_alpha=args.neftune_noise_alpha if args.neftune_noise_alpha > 0 else None,
     )
 
     trainer = SFTTrainer(
@@ -309,7 +326,42 @@ def main():
         processing_class=tokenizer,
     )
 
-    trainer.train()
+    # LoRA+: 为 lora_A 和 lora_B 设置不同的学习率
+    if args.lora_plus:
+        print("  启用 LoRA+ (B矩阵LR = A矩阵LR x {})".format(args.lora_plus_ratio))
+        from transformers import Trainer
+
+        lora_A_params = []
+        lora_B_params = []
+        other_params = []
+
+        for n, p in model.named_parameters():
+            if not p.requires_grad:
+                continue
+            if 'lora_A' in n or 'lora_A.default' in n:
+                lora_A_params.append(p)
+            elif 'lora_B' in n or 'lora_B.default' in n:
+                lora_B_params.append(p)
+            else:
+                other_params.append(p)
+
+        print(f"  LoRA+ 参数分组: A={len(lora_A_params)}, B={len(lora_B_params)}, other={len(other_params)}")
+
+        optimizer_cls, optimizer_kwargs = Trainer.get_optimizer_cls_and_kwargs(training_args)
+
+        optimizer = optimizer_cls([
+            {"params": lora_A_params, "lr": lr, "weight_decay": training_args.weight_decay or 0.0},
+            {"params": lora_B_params, "lr": lr * args.lora_plus_ratio, "weight_decay": training_args.weight_decay or 0.0},
+            {"params": other_params, "lr": lr, "weight_decay": training_args.weight_decay or 0.0},
+        ], **optimizer_kwargs)
+
+        trainer.optimizer = optimizer
+
+    if args.resume:
+        print("  从checkpoint恢复训练...")
+        trainer.train(resume_from_checkpoint=True)
+    else:
+        trainer.train()
 
     # ============================================================
     # 6. 保存
@@ -338,6 +390,9 @@ def main():
         "eval_samples": len(eval_dataset) if eval_dataset else 0,
         "gpu": torch.cuda.get_device_name(0),
         "has_eval": eval_dataset is not None,
+        "lora_plus": args.lora_plus,
+        "lora_plus_ratio": args.lora_plus_ratio if args.lora_plus else None,
+        "neftune_noise_alpha": args.neftune_noise_alpha if args.neftune_noise_alpha > 0 else None,
     }
     with open(os.path.join(output_dir, "training_config.json"), 'w', encoding='utf-8') as f:
         json.dump(config_info, f, ensure_ascii=False, indent=2)
